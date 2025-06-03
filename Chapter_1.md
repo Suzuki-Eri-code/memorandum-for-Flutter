@@ -1,14 +1,6 @@
 # Chapter 1  
 
-## 概要  
-
-- Flutterとは  
-
-- 自分用Flutter環境構築メモ  
-
-- Android Studioの使い方  
-
-## 1. Flutterとは  
+## Flutterとは  
 
 複数のプラットフォーム(※1)に対応したアプリを**1つのコードベースで開発できる**UIフレームワークである。  
 
