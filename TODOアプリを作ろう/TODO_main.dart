@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+// 最初に実行される関数
 void main() {
   runApp(TodoApp());
 }
 
+// 土台になるウィジェット
 class TodoApp extends StatelessWidget {
   const TodoApp({super.key});
 
@@ -13,8 +15,10 @@ class TodoApp extends StatelessWidget {
       title: 'TODO App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        // UIの密度を自動で設定
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      // 最初に表示する画面を指定
       home: TodoScreen(),
     );
   }
@@ -22,13 +26,14 @@ class TodoApp extends StatelessWidget {
 
 // タスクのデータモデル
 class Todo {
-  final int id;
-  final String title;
-  final bool isCompleted;
+  final int id;  // 識別用のID
+  final String title;  // タスクのタイトル
+  final bool isCompleted;  // タスクが完了したか
 
+  // Todoを呼び出す際、IDとタイトルを渡さなければエラーになる
   Todo({required this.id, required this.title, this.isCompleted = false});
 
-  // 完了状態を切り替えた新しいインスタンスを返す
+  // チェックボックスだけを切り替えた新しいタスクを返すメソッド
   Todo copyWith({bool? isCompleted}) {
     return Todo(
       id: id,
@@ -38,6 +43,7 @@ class Todo {
   }
 }
 
+// UI画面
 class TodoScreen extends StatefulWidget {
   const TodoScreen({super.key});
 
@@ -46,9 +52,10 @@ class TodoScreen extends StatefulWidget {
   _TodoScreenState createState() => _TodoScreenState();
 }
 
+// UIの状態を管理するクラス
 class _TodoScreenState extends State<TodoScreen> {
-  final List<Todo> _todos = [];
-  int _nextId = 1;
+  final List<Todo> _todos = [];  // タスクの一覧リスト
+  int _nextId = 1;  // 次に追加するタスクのID
 
   // タスクを追加する処理
   void _addTodo(String title) {
